@@ -1,10 +1,10 @@
 ;;; fx-misc.el --- miscellaneous small functions/settings  -*-coding: iso-2022-7bit;-*-
 
-;; Copyright (C) 2004, 2005, 2006, 2008  Free Software Foundation, Inc.
+;; Copyright (C) 2004, 2005, 2006, 2008, 2009  Free Software Foundation, Inc.
 
 ;; Author: Dave Love <fx@gnu.org>
 ;; Keywords: extensions
-;; $Revision: 1.36 $
+;; $Revision: 1.37 $
 ;; URL: http://www.loveshack.ukfsn.org/emacs
 
 ;; This file is free software; you can redistribute it and/or modify
@@ -460,7 +460,7 @@ Intended to be run from a local `post-command-hook'."
 		       (nxml-backward-up-element)
 		       t)
 		   (error nil))
-	    (push (buffer-substring (1+ xmltok-start) xmltok-name-end)
+	    (push (xmltok-start-tag-local-name)
 		  path))
 	  (mapconcat 'identity (or path '("???")) "/"))))))
 
